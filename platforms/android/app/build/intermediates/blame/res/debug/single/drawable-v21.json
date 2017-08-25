@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/budao/app-framework-android/bin/templates/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/budao/app-framework-android/bin/templates/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/Users/budao/app-framework-android/bin/templates/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/budao/app-framework-android/bin/templates/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/budao/weex-pack/generator/platforms/templates/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/budao/weex-pack/generator/platforms/templates/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/budao/weex-pack/generator/platforms/templates/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/budao/weex-pack/generator/platforms/templates/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/study/weex/demo02/platforms/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/zqz/.android/build-cache/ff97472ba7355a0e9a5eed001bceb82512470147/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/study/weex/demo02/platforms/android/app/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/zqz/.android/build-cache/ff97472ba7355a0e9a5eed001bceb82512470147/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    }
+]

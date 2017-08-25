@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/budao/weex-pack/generator/platforms/templates/android/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/budao/weex-pack/generator/platforms/templates/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/study/weex/demo02/platforms/android/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/zqz/.android/build-cache/ff97472ba7355a0e9a5eed001bceb82512470147/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/budao/app-framework-android/bin/templates/app/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/budao/app-framework-android/bin/templates/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/color-v23/abc_color_highlight_material.xml"
+    }
+]

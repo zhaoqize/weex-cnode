@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/study/weex/demo02/platforms/android/weexplugin/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4380920339da6432983f39c738858bc0aef8cf0e">
+        <dex dex="/study/weex/demo02/platforms/android/app/build/intermediates/pre-dexed/debug/classes_c9df2282b66e80fd2a9e8df5cbad20ae5519071a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/study/weex/demo02/platforms/android/appframework/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c8c7f2148be85c4e35f1ff0080ec62cbefaafdac">
+        <dex dex="/study/weex/demo02/platforms/android/app/build/intermediates/pre-dexed/debug/classes_c6ab67714a16c1175d1bdca6c6bbcc5e33b124a0.jar" />
+    </item>
+
+</items>

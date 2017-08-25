@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/study/weex/demo02/platforms/android/weexplugin/src/main/assets"/><source path="/study/weex/demo02/platforms/android/weexplugin/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/study/weex/demo02/platforms/android/weexplugin/src/release/assets"/></dataSet></merger>

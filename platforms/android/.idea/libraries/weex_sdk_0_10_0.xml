@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="weex_sdk-0.10.0">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/weexplugin/build/intermediates/exploded-aar/com.taobao.android/weex_sdk/0.10.0/res" />
+      <root url="jar://$PROJECT_DIR$/weexplugin/build/intermediates/exploded-aar/com.taobao.android/weex_sdk/0.10.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.taobao.android/weex_sdk/0.10.0/883b5d24d11543e9af90849daa11da37287ccb05/weex_sdk-0.10.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

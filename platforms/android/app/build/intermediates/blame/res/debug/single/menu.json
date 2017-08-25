@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/study/weex/demo02/platforms/android/app/build/intermediates/res/merged/debug/menu/main_scan.xml",
+        "source": "/study/weex/demo02/platforms/android/app/src/main/res/menu/main_scan.xml"
+    },
+    {
+        "merged": "/Users/budao/weex-pack/generator/platforms/templates/android/app/build/intermediates/res/merged/debug/menu/main_scan.xml",
+        "source": "/Users/budao/weex-pack/generator/platforms/templates/android/app/src/main/res/menu/main_scan.xml"
+    },
+    {
+        "merged": "/study/weex/demo02/platforms/android/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/study/weex/demo02/platforms/android/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/budao/app-framework-android/bin/templates/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/budao/app-framework-android/bin/templates/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/budao/weex-pack/generator/platforms/templates/android/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/budao/weex-pack/generator/platforms/templates/android/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/budao/app-framework-android/bin/templates/app/build/intermediates/res/merged/debug/menu/main_scan.xml",
+        "source": "/Users/budao/app-framework-android/bin/templates/app/src/main/res/menu/main_scan.xml"
+    }
+]
