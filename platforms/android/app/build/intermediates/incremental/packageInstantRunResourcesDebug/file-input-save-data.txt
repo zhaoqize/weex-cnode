@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Aug 28 16:48:48 CST 2017
+#Mon Aug 28 18:12:42 CST 2017
 175.set=ANDROID_RESOURCE
 122.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_ic_voice_search_api_mtrl_alpha.png
 60.set=ANDROID_RESOURCE

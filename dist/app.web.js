@@ -814,7 +814,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  margin-top: 100px;\n  width: 750px;\n}\n.row[data-v-4e7378a8] {\n  height: 100px;\n  flex-direction: column;\n  justify-content: center;\n  padding-left: 30px;\n  border-bottom-width: 2px;\n  border-bottom-style: solid;\n  border-bottom-color: #DDDDDD;\n}\n.text[data-v-4e7378a8] {\n  font-size: 45px;\n  color: #666666;\n}\n", ""]);
+exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  margin-top: 100px;\n  width: 750px;\n}\n.row[data-v-4e7378a8] {\n  height: 100px;\n  flex-direction: column;\n  justify-content: center;\n  padding-left: 30px;\n  border-bottom-width: 2px;\n  border-bottom-style: solid;\n  border-bottom-color: #DDDDDD;\n}\n.text[data-v-4e7378a8] {\n  font-size: 45px;\n  color: #666666;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n", ""]);
 
 // exports
 
@@ -1414,9 +1414,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "refresh": _vm.onrefresh
     }
-  }, [_c('text', {
-    staticClass: "indicator"
-  }, [_vm._v("下拉刷新")])]), _vm._v(" "), _vm._l((_vm.rows), function(name, index) {
+  }, [_c('image', {
+    staticStyle: {
+      "width": "45px",
+      "height": "45px"
+    },
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/loading.gif"
+    }
+  })]), _vm._v(" "), _vm._l((_vm.rows), function(name, index) {
     return _c('div', {
       key: index,
       ref: 'item' + index,

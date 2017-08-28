@@ -1,4 +1,21 @@
-## SideMenu遇到的问题
+## Weex开发中遇到的问题
+### refresh中图片不居中
+text文本可以居中，但是图片无法居中
+问题见:https://segmentfault.com/q/1010000009553950/a-1020000009555244
+解决方法：
+```css
+    width: 750px;
+    height: auto;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+```
+
+### 安卓中gif图片不动
 
 ### z-index问题
 在weex中不支持z-index，而是根据组件的先后顺序来处理层级。

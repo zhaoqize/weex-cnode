@@ -2,7 +2,7 @@
   <div class="wrapper">
     <scroller class="scroller">
       <refresh class="refresh" @refresh="onrefresh" :display="refreshing ? 'show' : 'hide'">
-        <text class="indicator">下拉刷新</text>
+          <image style="width:45px;height:45px;" src="http://ojlxao0wn.bkt.clouddn.com/loading.gif"></image>
       </refresh>
       <div class="row" v-for="(name, index) in rows" :ref="'item'+index" :key="index">
         <text class="text" :ref="'text'+index">{{name}}</text>
@@ -54,5 +54,16 @@
   .text {
     font-size: 45px;
     color: #666666;
+  }
+  .refresh {
+    width: 750px;
+    height: auto;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
   }
 </style>

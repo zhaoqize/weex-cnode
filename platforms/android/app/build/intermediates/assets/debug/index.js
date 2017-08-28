@@ -3465,6 +3465,14 @@ module.exports = {
   "text": {
     "fontSize": 45,
     "color": "#666666"
+  },
+  "refresh": {
+    "width": 750,
+    "display": "flex",
+    "MsFlexAlign": "center",
+    "WebkitAlignItems": "center",
+    "WebkitBoxAlign": "center",
+    "alignItems": "center"
   }
 }
 
@@ -3669,9 +3677,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "refresh": _vm.onrefresh
     }
-  }, [_c('text', {
-    staticClass: ["indicator"]
-  }, [_vm._v("下拉刷新")])]), _vm._l((_vm.rows), function(name, index) {
+  }, [_c('image', {
+    staticStyle: {
+      width: "45px",
+      height: "45px"
+    },
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/loading.gif"
+    }
+  })]), _vm._l((_vm.rows), function(name, index) {
     return _c('div', {
       key: index,
       ref: 'item' + index,
