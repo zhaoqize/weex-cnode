@@ -1,6 +1,9 @@
 <template>
   <div>
     <wx-header @showside="showSide"></wx-header>
+
+    <wx-scroller></wx-scroller>
+
     <wx-side-menu :menus="menu" :isShow="isShowSideMenu"></wx-side-menu>
     <!--weex不支持 z-index 而是通过加载顺序来展示结构-->
     <wx-cover :isShowCover="isShowCover"  @closeside="hideSide"></wx-cover>
@@ -10,8 +13,7 @@
 import wxHeader from '../components/Header.vue';
 import wxSideMenu from '../components/SideMenu.vue';
 import wxCover from '../components/Cover.vue';
-
-const modal = weex.requireModule('modal');
+import wxScroller from '../components/Scroller.vue';
 
 export default {
     data () {
@@ -33,7 +35,8 @@ export default {
     components: {
         wxHeader,
         wxSideMenu,
-        wxCover
+        wxCover,
+        wxScroller
     },
     methods: {
         showSide () {

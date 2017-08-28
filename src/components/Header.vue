@@ -33,7 +33,7 @@ export default {
     flex-direction: row;
     color:white;
     background-color: gray;
-    height: 50px;
+    height: 100px;
     width: 750px;
     top: 0;
 }
@@ -45,7 +45,7 @@ export default {
 }
 .header-text {
   text-align: center;
-  line-height: 50px;
+  line-height: 100px;
   color: white;
 }
 </style>
