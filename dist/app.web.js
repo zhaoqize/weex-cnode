@@ -695,17 +695,7 @@ exports.default = {
     data: function data() {
         return {
             isShowSideMenu: false,
-            isShowCover: false,
-            menu: [{
-                id: 1,
-                name: '精华01'
-            }, {
-                id: 2,
-                name: '精华02'
-            }, {
-                id: 3,
-                name: '精华03'
-            }]
+            isShowCover: false
         };
     },
 
@@ -722,6 +712,18 @@ exports.default = {
 
                     break;
                 case 1:
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
 
                     break;
                 default:
@@ -1294,7 +1296,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('wx-scroller'), _vm._v(" "), _c('wx-side-menu', {
     attrs: {
-      "menus": _vm.menu,
       "isShow": _vm.isShowSideMenu
     }
   }, [_c('div', {

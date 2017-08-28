@@ -4,7 +4,7 @@
 
     <wx-scroller></wx-scroller>
 
-    <wx-side-menu :menus="menu" :isShow="isShowSideMenu">
+    <wx-side-menu :isShow="isShowSideMenu">
         <div class="item" @click="toItem(0)">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E4%BA%BA%20%283%29.png">
             </image>
@@ -49,17 +49,7 @@ export default {
     data () {
         return {
             isShowSideMenu: false,
-            isShowCover: false,
-            menu: [{
-                id: 1,
-                name: '精华01'
-              }, {
-                  id: 2,
-                  name: '精华02'
-              }, {
-                  id: 3,
-                  name: '精华03'
-              }]
+            isShowCover: false
         };
     },
     components: {
@@ -69,12 +59,24 @@ export default {
         wxScroller
     },
     methods: {
-        toItem(type) {
+        toItem (type) {
             switch (type) {
                 case 0:
                     
                     break;
                 case 1:
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    
+                    break;
+                case 5:
                     
                     break;
                 default:
