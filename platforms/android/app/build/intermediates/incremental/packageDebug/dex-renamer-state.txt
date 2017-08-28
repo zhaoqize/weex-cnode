@@ -1,4 +1,4 @@
-#Mon Aug 28 18:02:10 CST 2017
+#Mon Aug 28 18:11:26 CST 2017
 base.0=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
