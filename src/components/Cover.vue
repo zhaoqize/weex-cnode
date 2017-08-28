@@ -31,7 +31,7 @@ export default {
             let coverEl = this.$refs.rightCover;
             animation.transition(coverEl, {
                 styles: {
-                    transform: 'translateX(-550px)'
+                    transform: 'translateX(-450px)'
                 },
                 duration: 200
             }, () => {
@@ -63,8 +63,8 @@ export default {
   background-color: rgba(0, 64, 255, 0.5);
   top: 0;
   bottom: 0;
-  width: 550px;
-  right: -550px;
+  width: 450px;
+  right: -450px;
 }
 </style>
 

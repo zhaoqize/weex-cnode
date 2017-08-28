@@ -520,7 +520,7 @@ exports.default = {
             var coverEl = this.$refs.rightCover;
             animation.transition(coverEl, {
                 styles: {
-                    transform: 'translateX(-550px)'
+                    transform: 'translateX(-450px)'
                 },
                 duration: 200
             }, function () {});
@@ -622,10 +622,6 @@ var modal = weex.requireModule('modal');
 
 exports.default = {
     props: {
-        menus: {
-            type: Array,
-            required: true
-        },
         isShow: {
             type: Boolean,
             required: true
@@ -720,6 +716,18 @@ exports.default = {
         wxScroller: _Scroller2.default
     },
     methods: {
+        toItem: function toItem(type) {
+            switch (type) {
+                case 0:
+
+                    break;
+                case 1:
+
+                    break;
+                default:
+                    break;
+            }
+        },
         showSide: function showSide() {
             console.log('showSide...');
             this.isShowSideMenu = true;
@@ -762,7 +770,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.header-container[data-v-199afeff] {\n    position: fixed;\n    flex-direction: row;\n    color:white;\n    background-color: gray;\n    height: 100px;\n    width: 750px;\n    top: 0;\n}\n.header-title[data-v-199afeff] {\n  flex: 1;\n}\n.header-btn[data-v-199afeff] {\n  flex: 1;\n}\n.header-text[data-v-199afeff] {\n  text-align: center;\n  line-height: 100px;\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.header-container[data-v-199afeff] {\n    position: fixed;\n    flex-direction: row;\n    color:white;\n    background-color: gray;\n    height: 100px;\n    width: 750px;\n    top: 0;\n}\n.header-title[data-v-199afeff] {\n  flex: 1;\n}\n.header-btn[data-v-199afeff] {\n  flex: 1;\n}\n.header-text[data-v-199afeff] {\n  text-align: center;\n  line-height: 100px;\n  color: white;\n  font-size: 45px;\n}\n.header-info[data-v-199afeff] {\n  width:75px;\n  height:75px;\n  margin-top:10px;\n  margin-bottom: 10px;\n  margin-left: 15px;\n  margin-right: 15px;\n}\n", ""]);
 
 // exports
 
@@ -776,7 +784,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .wrapper {\n    position: fixed;\n    background-color: rgba(150, 153, 162, 0.5);\n    width: 750px;\n    top: 0;\n    bottom: 0;\n    left: -750px;\n} */\n.slide-list-container[data-v-3867c4c8] {\n    position: fixed;\n    background-color: red;\n    width: 200px; /*在weex中 750 = 宽度100% 1250 = 高度100% https://weex.apache.org/cn/references/weex-variable.html#weex-config*/\n    left: -200px;\n    top: 0;\n    bottom: 0;\n    /*z-index: 10000;*/ /*https://weex.apache.org/cn/references/common-style.html*/\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .wrapper {\n    position: fixed;\n    background-color: rgba(150, 153, 162, 0.5);\n    width: 750px;\n    top: 0;\n    bottom: 0;\n    left: -750px;\n} */\n.slide-list-container[data-v-3867c4c8] {\n    position: fixed;\n    background-color: white;\n    width: 300px; /*在weex中 750 = 宽度100% 1250 = 高度100% https://weex.apache.org/cn/references/weex-variable.html#weex-config*/\n    left: -300px;\n    top: 0;\n    bottom: 0;\n    /*z-index: 10000;*/ /*https://weex.apache.org/cn/references/common-style.html*/\n}\n", ""]);
 
 // exports
 
@@ -790,7 +798,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.item[data-v-4e4ad46a] {\n    flex-direction: row;\n    height: 100px;\n    justify-content: center;\n    align-items: center;\n    border-left-style: solid;\n    border-bottom-width: 1px;\n    border-bottom-color:#ddd;\n}\n.img[data-v-4e4ad46a] {\n    width: 45px;\n    height: 45px;\n    margin-right: 20px;\n}\n.item-text[data-v-4e4ad46a] {\n    font-size: 45px;\n}\n", ""]);
 
 // exports
 
@@ -832,7 +840,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.cover[data-v-a6773196] {\n  position: fixed;\n  background-color: rgba(0, 64, 255, 0.5);\n  top: 0;\n  bottom: 0;\n  width: 550px;\n  right: -550px;\n}\n", ""]);
+exports.push([module.i, "\n.cover[data-v-a6773196] {\n  position: fixed;\n  background-color: rgba(0, 64, 255, 0.5);\n  top: 0;\n  bottom: 0;\n  width: 450px;\n  right: -450px;\n}\n", ""]);
 
 // exports
 
@@ -1232,17 +1240,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.showSide
     }
-  }, [_c('text', {
-    staticClass: "header-text"
-  }, [_vm._v("左上角")])]), _vm._v(" "), _c('div', {
+  }, [_c('image', {
+    staticClass: "header-info",
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A%20%281%29.png"
+    }
+  })]), _vm._v(" "), _c('div', {
     staticClass: "header-title"
   }, [_c('text', {
     staticClass: "header-text"
-  }, [_vm._v("中间")])]), _vm._v(" "), _c('div', {
+  })]), _vm._v(" "), _c('div', {
     staticClass: "header-btn"
   }, [_c('text', {
     staticClass: "header-text"
-  }, [_vm._v("左上角")])])])])
+  }, [_vm._v("...")])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -1262,11 +1273,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     ref: "slideMenu",
     staticClass: "slide-list-container"
-  }, _vm._l((_vm.menus), function(item) {
-    return _c('div', {
-      key: item.id
-    }, [_c('text', [_vm._v(_vm._s(item.name))])])
-  }))])
+  }, [_vm._t("default")], 2)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -1290,7 +1297,89 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "menus": _vm.menu,
       "isShow": _vm.isShowSideMenu
     }
-  }), _vm._v(" "), _c('wx-cover', {
+  }, [_c('div', {
+    staticClass: "item",
+    on: {
+      "click": function($event) {
+        _vm.toItem(0)
+      }
+    }
+  }, [_c('image', {
+    staticClass: "img",
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E4%BA%BA%20%283%29.png"
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "item",
+    on: {
+      "click": function($event) {
+        _vm.toItem(1)
+      }
+    }
+  }, [_c('image', {
+    staticClass: "img",
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E9%A6%96%E9%A1%B5.png"
+    }
+  }), _vm._v(" "), _c('text', {
+    staticClass: "item-text"
+  }, [_vm._v("首页")])]), _vm._v(" "), _c('div', {
+    staticClass: "item",
+    on: {
+      "click": function($event) {
+        _vm.toItem(2)
+      }
+    }
+  }, [_c('image', {
+    staticClass: "img",
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E9%97%AE%E7%AD%94.png"
+    }
+  }), _vm._v(" "), _c('text', {
+    staticClass: "item-text"
+  }, [_vm._v("问答")])]), _vm._v(" "), _c('div', {
+    staticClass: "item",
+    on: {
+      "click": function($event) {
+        _vm.toItem(3)
+      }
+    }
+  }, [_c('image', {
+    staticClass: "img",
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E5%88%86%E4%BA%AB.png"
+    }
+  }), _vm._v(" "), _c('text', {
+    staticClass: "item-text"
+  }, [_vm._v("分享")])]), _vm._v(" "), _c('div', {
+    staticClass: "item",
+    on: {
+      "click": function($event) {
+        _vm.toItem(4)
+      }
+    }
+  }, [_c('image', {
+    staticClass: "img",
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C.png"
+    }
+  }), _vm._v(" "), _c('text', {
+    staticClass: "item-text"
+  }, [_vm._v("工作")])]), _vm._v(" "), _c('div', {
+    staticClass: "item",
+    on: {
+      "click": function($event) {
+        _vm.toItem(5)
+      }
+    }
+  }, [_c('image', {
+    staticClass: "img",
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E7%89%A9%E5%93%81.png"
+    }
+  }), _vm._v(" "), _c('text', {
+    staticClass: "item-text"
+  }, [_vm._v("好物")])])]), _vm._v(" "), _c('wx-cover', {
     attrs: {
       "isShowCover": _vm.isShowCover
     },

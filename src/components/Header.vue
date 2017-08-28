@@ -2,13 +2,14 @@
   <div class="wrapper">
       <div ref="header" class="header-container">
           <div class="header-btn" @click="showSide">
-            <text class="header-text">左上角</text>
+              <image class="header-info" src="http://ojlxao0wn.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A%20%281%29.png">
+              </image>
           </div>
           <div class="header-title">
-            <text class="header-text">中间</text>
+            <text class="header-text"></text>
           </div>
           <div class="header-btn">
-            <text class="header-text">左上角</text>
+            <text class="header-text">...</text>
           </div>
       </div>
   </div>
@@ -47,6 +48,15 @@ export default {
   text-align: center;
   line-height: 100px;
   color: white;
+  font-size: 45px;
+}
+.header-info {
+  width:75px;
+  height:75px;
+  margin-top:10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 </style>
 

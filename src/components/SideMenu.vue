@@ -1,9 +1,7 @@
 <template>
   <div class="wrapper">
         <div ref="slideMenu" class="slide-list-container">
-            <div v-for="item in menus" :key="item.id">
-                <text>{{ item.name }}</text>
-            </div>
+            <slot></slot>
         </div>
   </div>
 </template>
@@ -14,10 +12,6 @@ const modal = weex.requireModule('modal')
 
 export default {
     props: {
-        menus: {
-            type: Array,
-            required: true
-        },
         isShow: {
             type: Boolean,
             required: true
@@ -75,9 +69,9 @@ export default {
 } */
 .slide-list-container {
     position: fixed;
-    background-color: red;
-    width: 200px; /*在weex中 750 = 宽度100% 1250 = 高度100% https://weex.apache.org/cn/references/weex-variable.html#weex-config*/
-    left: -200px;
+    background-color: white;
+    width: 300px; /*在weex中 750 = 宽度100% 1250 = 高度100% https://weex.apache.org/cn/references/weex-variable.html#weex-config*/
+    left: -300px;
     top: 0;
     bottom: 0;
     /*z-index: 10000;*/ /*https://weex.apache.org/cn/references/common-style.html*/

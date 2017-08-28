@@ -3141,7 +3141,7 @@ exports.default = {
             var coverEl = this.$refs.rightCover;
             animation.transition(coverEl, {
                 styles: {
-                    transform: 'translateX(-550px)'
+                    transform: 'translateX(-450px)'
                 },
                 duration: 200
             }, function () {});
@@ -3243,10 +3243,6 @@ var modal = weex.requireModule('modal');
 
 exports.default = {
     props: {
-        menus: {
-            type: Array,
-            required: true
-        },
         isShow: {
             type: Boolean,
             required: true
@@ -3341,6 +3337,18 @@ exports.default = {
         wxScroller: _Scroller2.default
     },
     methods: {
+        toItem: function toItem(type) {
+            switch (type) {
+                case 0:
+
+                    break;
+                case 1:
+
+                    break;
+                default:
+                    break;
+            }
+        },
         showSide: function showSide() {
             console.log('showSide...');
             this.isShowSideMenu = true;
@@ -3376,7 +3384,16 @@ module.exports = {
   "header-text": {
     "textAlign": "center",
     "lineHeight": 100,
-    "color": "#FFFFFF"
+    "color": "#FFFFFF",
+    "fontSize": 45
+  },
+  "header-info": {
+    "width": 75,
+    "height": 75,
+    "marginTop": 10,
+    "marginBottom": 10,
+    "marginLeft": 15,
+    "marginRight": 15
   }
 }
 
@@ -3384,7 +3401,25 @@ module.exports = {
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = {}
+module.exports = {
+  "item": {
+    "flexDirection": "row",
+    "height": 100,
+    "justifyContent": "center",
+    "alignItems": "center",
+    "borderLeftStyle": "solid",
+    "borderBottomWidth": 1,
+    "borderBottomColor": "#dddddd"
+  },
+  "img": {
+    "width": 45,
+    "height": 45,
+    "marginRight": 20
+  },
+  "item-text": {
+    "fontSize": 45
+  }
+}
 
 /***/ }),
 /* 18 */
@@ -3393,9 +3428,9 @@ module.exports = {}
 module.exports = {
   "slide-list-container": {
     "position": "fixed",
-    "backgroundColor": "#FF0000",
-    "width": 200,
-    "left": -200,
+    "backgroundColor": "#FFFFFF",
+    "width": 300,
+    "left": -300,
     "top": 0,
     "bottom": 0
   }
@@ -3441,8 +3476,8 @@ module.exports = {
     "backgroundColor": "rgba(0,64,255,0.5)",
     "top": 0,
     "bottom": 0,
-    "width": 550,
-    "right": -550
+    "width": 450,
+    "right": -450
   }
 }
 
@@ -3461,21 +3496,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.showSide
     }
-  }, [_c('text', {
-    staticClass: ["header-text"]
-  }, [_vm._v("左上角")])]), _vm._m(0), _vm._m(1)])])
+  }, [_c('image', {
+    staticClass: ["header-info"],
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E6%9B%B4%E5%A4%9A%20%281%29.png"
+    }
+  })]), _vm._m(0), _vm._m(1)])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["header-title"]
   }, [_c('text', {
     staticClass: ["header-text"]
-  }, [_vm._v("中间")])])
+  })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["header-btn"]
   }, [_c('text', {
     staticClass: ["header-text"]
-  }, [_vm._v("左上角")])])
+  }, [_vm._v("...")])])
 }]}
 module.exports.render._withStripped = true
 
@@ -3493,7 +3531,89 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "menus": _vm.menu,
       "isShow": _vm.isShowSideMenu
     }
-  }), _c('wx-cover', {
+  }, [_c('div', {
+    staticClass: ["item"],
+    on: {
+      "click": function($event) {
+        _vm.toItem(0)
+      }
+    }
+  }, [_c('image', {
+    staticClass: ["img"],
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E4%BA%BA%20%283%29.png"
+    }
+  })]), _c('div', {
+    staticClass: ["item"],
+    on: {
+      "click": function($event) {
+        _vm.toItem(1)
+      }
+    }
+  }, [_c('image', {
+    staticClass: ["img"],
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E9%A6%96%E9%A1%B5.png"
+    }
+  }), _c('text', {
+    staticClass: ["item-text"]
+  }, [_vm._v("首页")])]), _c('div', {
+    staticClass: ["item"],
+    on: {
+      "click": function($event) {
+        _vm.toItem(2)
+      }
+    }
+  }, [_c('image', {
+    staticClass: ["img"],
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E9%97%AE%E7%AD%94.png"
+    }
+  }), _c('text', {
+    staticClass: ["item-text"]
+  }, [_vm._v("问答")])]), _c('div', {
+    staticClass: ["item"],
+    on: {
+      "click": function($event) {
+        _vm.toItem(3)
+      }
+    }
+  }, [_c('image', {
+    staticClass: ["img"],
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E5%88%86%E4%BA%AB.png"
+    }
+  }), _c('text', {
+    staticClass: ["item-text"]
+  }, [_vm._v("分享")])]), _c('div', {
+    staticClass: ["item"],
+    on: {
+      "click": function($event) {
+        _vm.toItem(4)
+      }
+    }
+  }, [_c('image', {
+    staticClass: ["img"],
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C.png"
+    }
+  }), _c('text', {
+    staticClass: ["item-text"]
+  }, [_vm._v("工作")])]), _c('div', {
+    staticClass: ["item"],
+    on: {
+      "click": function($event) {
+        _vm.toItem(5)
+      }
+    }
+  }, [_c('image', {
+    staticClass: ["img"],
+    attrs: {
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E7%89%A9%E5%93%81.png"
+    }
+  }), _c('text', {
+    staticClass: ["item-text"]
+  }, [_vm._v("好物")])])]), _c('wx-cover', {
     attrs: {
       "isShowCover": _vm.isShowCover
     },
@@ -3514,11 +3634,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     ref: "slideMenu",
     staticClass: ["slide-list-container"]
-  }, _vm._l((_vm.menus), function(item) {
-    return _c('div', {
-      key: item.id
-    }, [_c('text', [_vm._v(_vm._s(item.name))])])
-  }))])
+  }, [_vm._t("default")], 2)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Aug 25 16:15:14 CST 2017
+#Mon Aug 28 18:02:10 CST 2017
 14.set=ANDROID_RESOURCE
 180.file=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/1f/main/lib/armeabi-v7a/libbitmaps.so
 118.set=ANDROID_RESOURCE
@@ -227,7 +227,7 @@
 61.set=ANDROID_RESOURCE
 3.set=ANDROID_RESOURCE
 57.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/xml/config.xml
-32.file=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar/org/jacoco/agent/rt/internal_b0d6a23/asm/xml/asm-xml.dtd
+32.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png
 165.set=NATIVE_RESOURCE
 63.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
 84.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/color/abc_secondary_text_material_light.xml
@@ -279,11 +279,11 @@
 129.set=ANDROID_RESOURCE
 71.set=ANDROID_RESOURCE
 58.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/layout/select_dialog_multichoice_material.xml
-33.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png
+33.file=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar/org/jacoco/agent/rt/internal_b0d6a23/asm/xml/asm-xml.dtd
 64.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
 85.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png
 139.base=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/1f/main
-32.set=JAVA_RESOURCE
+32.set=ANDROID_RESOURCE
 60.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/layout/design_layout_tab_icon.xml
 114.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
 91.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
@@ -511,7 +511,7 @@ count=206
 170.set=DEX
 201.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/layout/abc_action_mode_bar.xml
 124.file=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/1f/main/lib/x86/libimagepipeline.so
-33.set=ANDROID_RESOURCE
+33.set=JAVA_RESOURCE
 3.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
 176.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/layout-v21/abc_screen_toolbar.xml
 151.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/layout/abc_alert_dialog_button_bar_material.xml
@@ -532,7 +532,7 @@ count=206
 198.set=ANDROID_RESOURCE
 112.set=ANDROID_RESOURCE
 57.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
-32.base=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar
+32.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
 68.set=NATIVE_RESOURCE
 84.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
 63.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png
@@ -583,7 +583,7 @@ count=206
 160.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
 122.set=ANDROID_RESOURCE
 58.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
-33.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
+33.base=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar
 78.set=ANDROID_RESOURCE
 85.base=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_
 64.file=/study/weex/demo02/platforms/android/app/build/intermediates/res/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png
