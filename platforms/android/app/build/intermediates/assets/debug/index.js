@@ -3358,6 +3358,9 @@ exports.default = {
                 type: 'json',
                 url: 'https://cnodejs.org/api/v1/topic/' + repo
             }, callback);
+        },
+        back: function back() {
+            this.$router.back();
         }
     },
     mounted: function mounted() {
@@ -3366,9 +3369,6 @@ exports.default = {
         console.log(this.article.id);
         this.getArticle(this.articleId, function (res) {
             _this.article = res.data.data;
-
-            var bodyEl = _this.$refs.body;
-            bodyEl.$el.innerHTML = _this.article.content;
         });
     }
 };
@@ -3501,7 +3501,42 @@ exports.default = {
 /* 18 */
 /***/ (function(module, exports) {
 
-module.exports = {}
+module.exports = {
+  "info": {
+    "paddingBottom": 20,
+    "paddingTop": 20,
+    "paddingLeft": 20,
+    "paddingRight": 20
+  },
+  "header-container": {
+    "flexDirection": "row",
+    "backgroundColor": "#000000",
+    "height": 100,
+    "alignItems": "center"
+  },
+  "header-text": {
+    "color": "#FFFFFF"
+  },
+  "header-wrapper": {
+    "flex": 1
+  },
+  "back": {
+    "paddingLeft": 20,
+    "fontSize": 32
+  },
+  "title": {
+    "fontSize": 35,
+    "fontWeight": "700"
+  },
+  "body": {
+    "fontSize": 32
+  },
+  "share": {
+    "textAlign": "right",
+    "marginRight": 20,
+    "fontSize": 32
+  }
+}
 
 /***/ }),
 /* 19 */
@@ -3509,10 +3544,9 @@ module.exports = {}
 
 module.exports = {
   "header-container": {
-    "position": "fixed",
     "flexDirection": "row",
     "color": "#FFFFFF",
-    "backgroundColor": "#808080",
+    "backgroundColor": "#000000",
     "height": 100,
     "width": 750,
     "top": 0
@@ -3629,11 +3663,11 @@ module.exports = {}
 
 module.exports = {
   "scroller": {
-    "marginTop": 100,
     "width": 750
   },
   "refresh": {
     "width": 750,
+    "height": 100,
     "display": "flex",
     "MsFlexAlign": "center",
     "WebkitAlignItems": "center",
@@ -3649,7 +3683,7 @@ module.exports = {
     "alignItems": "center"
   },
   "indicator": {
-    "color": "#888888",
+    "color": "#FF0000",
     "fontSize": 42,
     "paddingTop": 20,
     "paddingBottom": 20,
@@ -3677,16 +3711,47 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('text', {
-    ref: "title",
+  return _c('div', {
+    staticClass: ["wrapper"]
+  }, [_c('div', {
+    ref: "header",
+    staticClass: ["header-container"]
+  }, [_c('div', {
+    staticClass: ["header-wrapper"]
+  }, [_c('text', {
+    staticClass: ["header-text", "back"],
+    on: {
+      "click": _vm.back
+    }
+  }, [_vm._v("返回")])]), _vm._m(0), _vm._m(1)]), _c('list', {
+    staticClass: ["scroller"]
+  }, [_c('cell', {
+    staticClass: ["info"],
+    appendAsTree: true,
+    attrs: {
+      "append": "tree"
+    }
+  }, [_c('text', {
     staticClass: ["title"]
   }, [_vm._v(_vm._s(_vm.article.title))]), _c('text', {
     ref: "body",
     staticClass: ["body"]
-  }), _c('text', {
+  }, [_vm._v(_vm._s(_vm.article.content))]), _c('text', {
     staticClass: ["other"]
-  }, [_vm._v(_vm._s(_vm.article.create_at))])])
-},staticRenderFns: []}
+  }, [_vm._v(_vm._s(_vm.article.create_at))])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["header-wrapper"]
+  }, [_c('text', {
+    staticClass: ["header-text"]
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["header-wrapper"]
+  }, [_c('text', {
+    staticClass: ["header-text", "share"]
+  }, [_vm._v("分享")])])
+}]}
 module.exports.render._withStripped = true
 
 /***/ }),

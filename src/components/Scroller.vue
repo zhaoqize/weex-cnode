@@ -7,8 +7,9 @@
           <loading-indicator class="indicator"></loading-indicator>
       </refresh>
       <slot></slot>
-      <!-- <loading class="loading" :display="showloading">
-        <text class="indicator">加载中...</text>
+      <!-- <loading class="refresh" @loading="onloading" :display="showloading" >
+        <text>↑ Loadmore </text>
+        <loading-indicator class="indicator"></loading-indicator>
       </loading> -->
     </list>
   </div>
@@ -39,13 +40,13 @@
 </script>
 <style scoped>
   .scroller {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     width: 750px;
   }
 
   .refresh {
     width: 750px;
-    height: auto;
+    height: 100px;
     display: -ms-flex;
     display: -webkit-flex;
     display: flex;
@@ -56,7 +57,7 @@
   }
   .loading {
     width: 750px;
-    height: auto;
+    height: 100px;
     display: -ms-flex;
     display: -webkit-flex;
     display: flex;
@@ -74,7 +75,7 @@
     padding-bottom: 20px; 
   } */
   .indicator {
-    color: #888888;
+    color: red;
     font-size: 42px;
     padding-top: 20px;
     padding-bottom: 20px;

@@ -11,12 +11,13 @@
               <text class="header-text share">分享</text>
             </div>
         </div>
-        <div class="info">
+        <list class="scroller">
+          <cell class="info">
            <text class="title">{{ article.title }}</text>
             <text class="body" ref="body">{{ article.content }}</text>
             <text class="other">{{ article.create_at }}</text>
-        </div>
-      
+          </cell>
+        </list>
     </div>
 </template>
 <script>
@@ -72,14 +73,19 @@ export default {
 }
 .back {
   padding-left: 20px;
+  font-size: 32px;
 }
 .title {
-  font-size: 45px;
+  font-size: 35px;
   font-weight: 700;
+}
+.body {
+  font-size: 32px;
 }
 .share {
   text-align: right;
   margin-right: 20px;
+  font-size: 32px;
 }
 </style>
 

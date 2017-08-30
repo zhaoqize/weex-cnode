@@ -30,10 +30,10 @@ export default {
 
 <style scoped>
 .header-container {
-    position: fixed;
+    /* position: fixed; */
     flex-direction: row;
     color:white;
-    background-color: gray;
+    background-color: black;
     height: 100px;
     width: 750px;
     top: 0;

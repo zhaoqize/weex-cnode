@@ -862,7 +862,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.info[data-v-068d468e] {\n  padding-bottom: 20px;\n  padding-top:20px;\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.header-container[data-v-068d468e] {\n  flex-direction: row;\n  background-color: black;\n  height: 100px;\n  align-items: center;\n}\n.header-text[data-v-068d468e] {\n   color: white;\n}\n.header-wrapper[data-v-068d468e] {\n     flex: 1;\n}\n.back[data-v-068d468e] {\n  padding-left: 20px;\n}\n.title[data-v-068d468e] {\n  font-size: 45px;\n  font-weight: 700;\n}\n.share[data-v-068d468e] {\n  text-align: right;\n  margin-right: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.info[data-v-068d468e] {\n  padding-bottom: 20px;\n  padding-top:20px;\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.header-container[data-v-068d468e] {\n  flex-direction: row;\n  background-color: black;\n  height: 100px;\n  align-items: center;\n}\n.header-text[data-v-068d468e] {\n   color: white;\n}\n.header-wrapper[data-v-068d468e] {\n     flex: 1;\n}\n.back[data-v-068d468e] {\n  padding-left: 20px;\n  font-size: 32px;\n}\n.title[data-v-068d468e] {\n  font-size: 35px;\n  font-weight: 700;\n}\n.body[data-v-068d468e] {\n  font-size: 32px;\n}\n.share[data-v-068d468e] {\n  text-align: right;\n  margin-right: 20px;\n  font-size: 32px;\n}\n", ""]);
 
 // exports
 
@@ -876,7 +876,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.header-container[data-v-199afeff] {\n    position: fixed;\n    flex-direction: row;\n    color:white;\n    background-color: gray;\n    height: 100px;\n    width: 750px;\n    top: 0;\n}\n.header-title[data-v-199afeff] {\n  flex: 1;\n}\n.header-btn[data-v-199afeff] {\n  flex: 1;\n}\n.header-text[data-v-199afeff] {\n  text-align: center;\n  line-height: 100px;\n  color: white;\n  font-size: 45px;\n}\n.header-info[data-v-199afeff] {\n  width:75px;\n  height:75px;\n  margin-top:10px;\n  margin-bottom: 10px;\n  margin-left: 15px;\n  margin-right: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.header-container[data-v-199afeff] {\n    /* position: fixed; */\n    flex-direction: row;\n    color:white;\n    background-color: black;\n    height: 100px;\n    width: 750px;\n    top: 0;\n}\n.header-title[data-v-199afeff] {\n  flex: 1;\n}\n.header-btn[data-v-199afeff] {\n  flex: 1;\n}\n.header-text[data-v-199afeff] {\n  text-align: center;\n  line-height: 100px;\n  color: white;\n  font-size: 45px;\n}\n.header-info[data-v-199afeff] {\n  width:75px;\n  height:75px;\n  margin-top:10px;\n  margin-bottom: 10px;\n  margin-left: 15px;\n  margin-right: 15px;\n}\n", ""]);
 
 // exports
 
@@ -918,7 +918,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  margin-top: 100px;\n  width: 750px;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n.loading[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n/* .indicator {\n  background-color: gray;\n  color: white;\n  padding-left: 20px;\n  padding-right: 20px; \n  padding-top: 20px;\n  padding-bottom: 20px; \n} */\n.indicator[data-v-4e7378a8] {\n  color: #888888;\n  font-size: 42px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  /* margin-top: 100px; */\n  width: 750px;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: 100px;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n.loading[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n/* .indicator {\n  background-color: gray;\n  color: white;\n  padding-left: 20px;\n  padding-right: 20px; \n  padding-top: 20px;\n  padding-bottom: 20px; \n} */\n.indicator[data-v-4e7378a8] {\n  color: red;\n  font-size: 42px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -1394,7 +1394,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "header-wrapper"
   }, [_c('text', {
     staticClass: "header-text share"
-  }, [_vm._v("分享")])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("分享")])])]), _vm._v(" "), _c('list', {
+    staticClass: "scroller"
+  }, [_c('cell', {
     staticClass: "info"
   }, [_c('text', {
     staticClass: "title"
@@ -1403,7 +1405,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "body"
   }, [_vm._v(_vm._s(_vm.article.content))]), _vm._v(" "), _c('text', {
     staticClass: "other"
-  }, [_vm._v(_vm._s(_vm.article.create_at))])])])
+  }, [_vm._v(_vm._s(_vm.article.create_at))])])], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
