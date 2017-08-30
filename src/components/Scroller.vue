@@ -1,31 +1,38 @@
 <template>
   <div class="wrapper">
-    <scroller class="scroller">
+    <list class="scroller" @loadmore="loadmore" loadmoreoffset="10">
       <refresh class="refresh" @refresh="onrefresh" :display="refreshing ? 'show' : 'hide'">
-          <image style="width:45px;height:45px;" src="http://ojlxao0wn.bkt.clouddn.com/loading.gif"></image>
+          <!-- <image style="width:45px;height:45px;" src="http://ojlxao0wn.bkt.clouddn.com/loading.gif"></image> -->
+          <text> ↓ pull to refresh </text>
+          <loading-indicator class="indicator"></loading-indicator>
       </refresh>
       <slot></slot>
-    </scroller>
+      <!-- <loading class="loading" :display="showloading">
+        <text class="indicator">加载中...</text>
+      </loading> -->
+    </list>
   </div>
 </template>
 <script>
   const modal = weex.requireModule('modal');
 
   export default {
-      data () {
-          return {
-              refreshing: false
-          };
+      props: {
+          refreshing: {
+              type: Boolean,
+              required: true
+          },
+          showloading: {
+              type: String,
+              required: true
+          }
       },
       methods: {
           onrefresh (event) {
-              // console.log('is refreshing');
-              // modal.toast({ message: 'refresh', duration: 1 });
-              // this.refreshing = true;
-              // setTimeout(() => {
-              //     this.refreshing = false;
-              // }, 2000);
               this.$emit('onrefresh');
+          },
+          loadmore () {
+              this.$emit('loadmore');
           }
       }
   };
@@ -46,5 +53,31 @@
     -webkit-align-items: center;
     -webkit-box-align: center;
     align-items: center;
+  }
+  .loading {
+    width: 750px;
+    height: auto;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+  /* .indicator {
+    background-color: gray;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px; 
+    padding-top: 20px;
+    padding-bottom: 20px; 
+  } */
+  .indicator {
+    color: #888888;
+    font-size: 42px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
   }
 </style>

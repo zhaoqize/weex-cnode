@@ -3200,15 +3200,22 @@ Object.defineProperty(exports, "__esModule", {
 var modal = weex.requireModule('modal');
 
 exports.default = {
-    data: function data() {
-        return {
-            refreshing: false
-        };
+    props: {
+        refreshing: {
+            type: Boolean,
+            required: true
+        },
+        showloading: {
+            type: String,
+            required: true
+        }
     },
-
     methods: {
         onrefresh: function onrefresh(event) {
             this.$emit('onrefresh');
+        },
+        loadmore: function loadmore() {
+            this.$emit('loadmore');
         }
     }
 };
@@ -3300,14 +3307,17 @@ var _Scroller2 = _interopRequireDefault(_Scroller);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var stream = weex.requireModule('stream');
+var modal = weex.requireModule('modal');
 
 exports.default = {
     data: function data() {
         return {
             isShowSideMenu: false,
             isShowCover: false,
-            rows: []
-        };
+            rows: [],
+            refreshing: false,
+            showloading: 'hide',
+            pointer: 1 };
     },
 
     components: {
@@ -3317,11 +3327,7 @@ exports.default = {
         wxScroller: _Scroller2.default
     },
     mounted: function mounted() {
-        var _this = this;
-
-        this.getTopics('?page=1&limit=20', function (res) {
-            _this.rows = res.data.data;
-        });
+        this.onrefresh();
     },
 
     methods: {
@@ -3356,9 +3362,31 @@ exports.default = {
                     break;
             }
         },
-        onRefresh: function onRefresh() {},
+        onrefresh: function onrefresh() {
+            var _this = this;
+
+            this.pointer = 1;
+            this.refreshing = true;
+            this.getTopics('?page=1&limit=12', function (res) {
+                modal.toast({ message: '刷新成功!', duration: 1 });
+                _this.rows = res.data.data;
+                _this.refreshing = false;
+            });
+        },
+        loadmore: function loadmore() {
+            var _this2 = this;
+
+            console.log('--- onloadmore ---');
+            this.pointer = this.pointer + 1;
+            var limit = this.pointer * 12;
+            this.showloading = 'show';
+            this.getTopics('?page=1&limit=' + limit, function (res) {
+                modal.toast({ message: '获取数据成功!', duration: 1 });
+                _this2.rows = res.data.data;
+                _this2.showloading = 'hide';
+            });
+        },
         showSide: function showSide() {
-            console.log('showSide...');
             this.isShowSideMenu = true;
             this.isShowCover = true;
         },
@@ -3505,6 +3533,21 @@ module.exports = {
     "WebkitAlignItems": "center",
     "WebkitBoxAlign": "center",
     "alignItems": "center"
+  },
+  "loading": {
+    "width": 750,
+    "display": "flex",
+    "MsFlexAlign": "center",
+    "WebkitAlignItems": "center",
+    "WebkitBoxAlign": "center",
+    "alignItems": "center"
+  },
+  "indicator": {
+    "color": "#888888",
+    "fontSize": 42,
+    "paddingTop": 20,
+    "paddingBottom": 20,
+    "textAlign": "center"
   }
 }
 
@@ -3569,15 +3612,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "showside": _vm.showSide
     }
   }), _c('wx-scroller', {
+    attrs: {
+      "refreshing": _vm.refreshing,
+      "showloading": _vm.showloading
+    },
     on: {
-      "onrefresh": _vm.onRefresh
+      "onrefresh": _vm.onrefresh,
+      "loadmore": _vm.loadmore
     }
   }, _vm._l((_vm.rows), function(item, index) {
-    return _c('div', {
+    return _c('cell', {
       key: index,
       ref: 'item' + index,
       refInFor: true,
-      staticClass: ["row-wrap"]
+      staticClass: ["row-wrap"],
+      appendAsTree: true,
+      attrs: {
+        "append": "tree"
+      }
     }, [_c('div', {
       staticClass: ["row"]
     }, [_c('text', {
@@ -3587,7 +3639,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "lines": "1"
       }
-    }, [_vm._v(_vm._s(item.title))]), _c('image', {
+    }, [_vm._v(_vm._s(index) + "--" + _vm._s(item.title))]), _c('image', {
       staticClass: ["avatar"],
       attrs: {
         "src": item.author.avatar_url
@@ -3732,8 +3784,14 @@ module.exports.render._withStripped = true
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["wrapper"]
-  }, [_c('scroller', {
-    staticClass: ["scroller"]
+  }, [_c('list', {
+    staticClass: ["scroller"],
+    attrs: {
+      "loadmoreoffset": "10"
+    },
+    on: {
+      "loadmore": _vm.loadmore
+    }
   }, [_c('refresh', {
     staticClass: ["refresh"],
     attrs: {
@@ -3742,15 +3800,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "refresh": _vm.onrefresh
     }
-  }, [_c('image', {
-    staticStyle: {
-      width: "45px",
-      height: "45px"
-    },
-    attrs: {
-      "src": "http://ojlxao0wn.bkt.clouddn.com/loading.gif"
-    }
-  })]), _vm._t("default")], 2)])
+  }, [_c('text', [_vm._v(" ↓ pull to refresh ")]), _c('loading-indicator', {
+    staticClass: ["indicator"]
+  })], 1), _vm._t("default")], 2)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

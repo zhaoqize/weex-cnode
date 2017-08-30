@@ -76,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/assets/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="3774" column="12" selection-start-line="3774" selection-start-column="12" selection-end-line="3774" selection-end-column="12" />
+              <caret line="3826" column="12" selection-start-line="3826" selection-start-column="12" selection-end-line="3826" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -3620,8 +3620,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1912" />
-    <option name="y" value="-150" />
+    <option name="x" value="-1929" />
+    <option name="y" value="-153" />
     <option name="width" value="1201" />
     <option name="height" value="819" />
   </component>
@@ -3670,20 +3670,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3905,7 +3891,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1912" y="-150" width="1201" height="819" extended-state="0" />
+    <frame x="-1929" y="-153" width="1201" height="819" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4303,7 +4289,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/assets/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="3774" column="12" selection-start-line="3774" selection-start-column="12" selection-end-line="3774" selection-end-column="12" />
+          <caret line="3826" column="12" selection-start-line="3826" selection-start-column="12" selection-end-line="3826" selection-end-column="12" />
           <folding />
         </state>
       </provider>

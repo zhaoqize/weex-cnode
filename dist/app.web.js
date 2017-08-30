@@ -579,15 +579,22 @@ Object.defineProperty(exports, "__esModule", {
 var modal = weex.requireModule('modal');
 
 exports.default = {
-    data: function data() {
-        return {
-            refreshing: false
-        };
+    props: {
+        refreshing: {
+            type: Boolean,
+            required: true
+        },
+        showloading: {
+            type: String,
+            required: true
+        }
     },
-
     methods: {
         onrefresh: function onrefresh(event) {
             this.$emit('onrefresh');
+        },
+        loadmore: function loadmore() {
+            this.$emit('loadmore');
         }
     }
 };
@@ -679,14 +686,17 @@ var _Scroller2 = _interopRequireDefault(_Scroller);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var stream = weex.requireModule('stream');
+var modal = weex.requireModule('modal');
 
 exports.default = {
     data: function data() {
         return {
             isShowSideMenu: false,
             isShowCover: false,
-            rows: []
-        };
+            rows: [],
+            refreshing: false,
+            showloading: 'hide',
+            pointer: 1 };
     },
 
     components: {
@@ -696,11 +706,7 @@ exports.default = {
         wxScroller: _Scroller2.default
     },
     mounted: function mounted() {
-        var _this = this;
-
-        this.getTopics('?page=1&limit=20', function (res) {
-            _this.rows = res.data.data;
-        });
+        this.onrefresh();
     },
 
     methods: {
@@ -735,9 +741,31 @@ exports.default = {
                     break;
             }
         },
-        onRefresh: function onRefresh() {},
+        onrefresh: function onrefresh() {
+            var _this = this;
+
+            this.pointer = 1;
+            this.refreshing = true;
+            this.getTopics('?page=1&limit=12', function (res) {
+                modal.toast({ message: '刷新成功!', duration: 1 });
+                _this.rows = res.data.data;
+                _this.refreshing = false;
+            });
+        },
+        loadmore: function loadmore() {
+            var _this2 = this;
+
+            console.log('--- onloadmore ---');
+            this.pointer = this.pointer + 1;
+            var limit = this.pointer * 12;
+            this.showloading = 'show';
+            this.getTopics('?page=1&limit=' + limit, function (res) {
+                modal.toast({ message: '获取数据成功!', duration: 1 });
+                _this2.rows = res.data.data;
+                _this2.showloading = 'hide';
+            });
+        },
         showSide: function showSide() {
-            console.log('showSide...');
             this.isShowSideMenu = true;
             this.isShowCover = true;
         },
@@ -820,7 +848,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  margin-top: 100px;\n  width: 750px;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n", ""]);
+exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  margin-top: 100px;\n  width: 750px;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n.loading[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n/* .indicator {\n  background-color: gray;\n  color: white;\n  padding-left: 20px;\n  padding-right: 20px; \n  padding-top: 20px;\n  padding-bottom: 20px; \n} */\n.indicator[data-v-4e7378a8] {\n  color: #888888;\n  font-size: 42px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -1301,11 +1329,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "showside": _vm.showSide
     }
   }), _vm._v(" "), _c('wx-scroller', {
+    attrs: {
+      "refreshing": _vm.refreshing,
+      "showloading": _vm.showloading
+    },
     on: {
-      "onrefresh": _vm.onRefresh
+      "onrefresh": _vm.onrefresh,
+      "loadmore": _vm.loadmore
     }
   }, _vm._l((_vm.rows), function(item, index) {
-    return _c('div', {
+    return _c('cell', {
       key: index,
       ref: 'item' + index,
       refInFor: true,
@@ -1319,7 +1352,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "lines": "1"
       }
-    }, [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('image', {
+    }, [_vm._v(_vm._s(index) + "--" + _vm._s(item.title))]), _vm._v(" "), _c('image', {
       staticClass: "avatar",
       attrs: {
         "src": item.author.avatar_url
@@ -1443,8 +1476,14 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "wrapper"
-  }, [_c('scroller', {
-    staticClass: "scroller"
+  }, [_c('list', {
+    staticClass: "scroller",
+    attrs: {
+      "loadmoreoffset": "10"
+    },
+    on: {
+      "loadmore": _vm.loadmore
+    }
   }, [_c('refresh', {
     staticClass: "refresh",
     attrs: {
@@ -1453,15 +1492,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "refresh": _vm.onrefresh
     }
-  }, [_c('image', {
-    staticStyle: {
-      "width": "45px",
-      "height": "45px"
-    },
-    attrs: {
-      "src": "http://ojlxao0wn.bkt.clouddn.com/loading.gif"
-    }
-  })]), _vm._v(" "), _vm._t("default")], 2)], 1)
+  }, [_c('text', [_vm._v(" ↓ pull to refresh ")]), _vm._v(" "), _c('loading-indicator', {
+    staticClass: "indicator"
+  })], 1), _vm._v(" "), _vm._t("default")], 2)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

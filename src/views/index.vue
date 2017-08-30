@@ -2,18 +2,22 @@
   <div>
     <wx-header @showside="showSide"></wx-header>
 
-    <wx-scroller @onrefresh="onRefresh">
-             <div class="row-wrap" v-for="(item, index) in rows" :ref="'item'+index" :key="index">
-                <div class="row">
-                    <text class="text" :ref="'text'+index" lines="1">{{item.title}}</text>
-                    <image :src="item.author.avatar_url" class="avatar"></image>
-                </div>
-                <div class="other">
-                    <text class="other-info tab">{{ item.tab }}</text>
-                    <text class="count other-info">{{ item.reply_count }}/{{ item.visit_count }} </text>
-                    <text class="loginname other-info">{{ item.author.loginname }}</text>
-                </div>
+    <wx-scroller 
+        @onrefresh="onrefresh" 
+        @loadmore="loadmore"
+        :refreshing="refreshing"
+        :showloading="showloading">
+        <cell class="row-wrap" v-for="(item, index) in rows" :ref="'item'+index" :key="index">
+            <div class="row">
+                <text class="text" :ref="'text'+index" lines="1">{{index}}--{{item.title}}</text>
+                <image :src="item.author.avatar_url" class="avatar"></image>
             </div>
+            <div class="other">
+                <text class="other-info tab">{{ item.tab }}</text>
+                <text class="count other-info">{{ item.reply_count }}/{{ item.visit_count }} </text>
+                <text class="loginname other-info">{{ item.author.loginname }}</text>
+            </div>
+        </cell>
     </wx-scroller>
 
     <wx-side-menu :isShow="isShowSideMenu">
@@ -59,13 +63,17 @@ import wxCover from '../components/Cover.vue';
 import wxScroller from '../components/Scroller.vue';
 
 const stream = weex.requireModule('stream');
+const modal = weex.requireModule('modal');
 
 export default {
     data () {
         return {
-            isShowSideMenu: false,
-            isShowCover: false,
-            rows: []
+            isShowSideMenu: false, // 控制左侧菜单
+            isShowCover: false, // 控制遮罩
+            rows: [], // 数据列表
+            refreshing: false, // 控制下拉刷新,
+            showloading: 'hide', // 控制上拉刷新
+            pointer: 1 // 下拉几次
         };
     },
     components: {
@@ -75,9 +83,7 @@ export default {
         wxScroller
     },
     mounted () {
-        this.getTopics('?page=1&limit=20', (res) => {
-            this.rows = res.data.data;
-        });
+        this.onrefresh();
     },
     methods: {
         getTopics (repo, callback) {
@@ -111,11 +117,27 @@ export default {
                     break;
             }
         },
-        onRefresh () {
-
+        onrefresh () {
+            this.pointer = 1;
+            this.refreshing = true;
+            this.getTopics('?page=1&limit=12', (res) => {
+                modal.toast({ message: '刷新成功!', duration: 1 });
+                this.rows = res.data.data;
+                this.refreshing = false;
+            });
+        },
+        loadmore () {
+            console.log('--- onloadmore ---');
+            this.pointer = this.pointer + 1;
+            const limit = this.pointer * 12;
+            this.showloading = 'show';
+            this.getTopics('?page=1&limit=' + limit, (res) => {
+                modal.toast({ message: '获取数据成功!', duration: 1 });
+                this.rows = res.data.data;
+                this.showloading = 'hide';
+            });
         },
         showSide () {
-            console.log('showSide...');
             this.isShowSideMenu = true;
             this.isShowCover = true;
         },

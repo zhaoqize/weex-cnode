@@ -33,3 +33,8 @@ weex中使用`lines`控制行数，text中也需要设置`lines`
 
 具体见：http://weex-project.io/cn/references/components/text.html
 
+### Scroller在安卓中进行无法滚动
+建议使用`list`配合`cell`做滚动列表
+
+## loading的使用有问题(与list的loadmore方法不能共存)
+一旦使用loading就出现问题，且loading在web上看不到效果。
