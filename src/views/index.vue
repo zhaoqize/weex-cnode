@@ -7,7 +7,7 @@
         @loadmore="loadmore"
         :refreshing="refreshing"
         :showloading="showloading">
-        <cell class="row-wrap" v-for="(item, index) in rows" :ref="'item'+index" :key="index">
+        <cell class="row-wrap" v-for="(item, index) in rows" :ref="'item'+index" :key="index" @click="goToArticle(item)">
             <div class="row">
                 <text class="text" :ref="'text'+index" lines="1">{{index}}--{{item.title}}</text>
                 <image :src="item.author.avatar_url" class="avatar"></image>
@@ -66,6 +66,7 @@ const stream = weex.requireModule('stream');
 const modal = weex.requireModule('modal');
 
 export default {
+    name: 'index',
     data () {
         return {
             isShowSideMenu: false, // 控制左侧菜单
@@ -92,6 +93,9 @@ export default {
                 type: 'json',
                 url: 'https://cnodejs.org/api/v1/topics' + repo
             }, callback);
+        },
+        goToArticle (item) {
+            this.$router.push({ path: `article/${item.id}`, query: {id: item.id}});
         },
         toItem (type) {
             switch (type) {

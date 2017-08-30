@@ -38,3 +38,6 @@ weex中使用`lines`控制行数，text中也需要设置`lines`
 
 ## loading的使用有问题(与list的loadmore方法不能共存)
 一旦使用loading就出现问题，且loading在web上看不到效果。
+
+## stream请求后面总是会带上`undefined`
+
