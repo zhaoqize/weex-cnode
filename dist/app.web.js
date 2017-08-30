@@ -581,26 +581,13 @@ var modal = weex.requireModule('modal');
 exports.default = {
     data: function data() {
         return {
-            refreshing: false,
-            rows: []
+            refreshing: false
         };
-    },
-    created: function created() {
-        for (var i = 0; i < 30; i++) {
-            this.rows.push('row ' + i);
-        }
     },
 
     methods: {
         onrefresh: function onrefresh(event) {
-            var _this = this;
-
-            console.log('is refreshing');
-            modal.toast({ message: 'refresh', duration: 1 });
-            this.refreshing = true;
-            setTimeout(function () {
-                _this.refreshing = false;
-            }, 2000);
+            this.$emit('onrefresh');
         }
     }
 };
@@ -691,11 +678,14 @@ var _Scroller2 = _interopRequireDefault(_Scroller);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var stream = weex.requireModule('stream');
+
 exports.default = {
     data: function data() {
         return {
             isShowSideMenu: false,
-            isShowCover: false
+            isShowCover: false,
+            rows: []
         };
     },
 
@@ -705,7 +695,22 @@ exports.default = {
         wxCover: _Cover2.default,
         wxScroller: _Scroller2.default
     },
+    mounted: function mounted() {
+        var _this = this;
+
+        this.getTopics('?page=1&limit=20', function (res) {
+            _this.rows = res.data.data;
+        });
+    },
+
     methods: {
+        getTopics: function getTopics(repo, callback) {
+            return stream.fetch({
+                method: 'GET',
+                type: 'json',
+                url: 'https://cnodejs.org/api/v1/topics' + repo
+            }, callback);
+        },
         toItem: function toItem(type) {
             switch (type) {
                 case 0:
@@ -730,6 +735,7 @@ exports.default = {
                     break;
             }
         },
+        onRefresh: function onRefresh() {},
         showSide: function showSide() {
             console.log('showSide...');
             this.isShowSideMenu = true;
@@ -800,7 +806,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.item[data-v-4e4ad46a] {\n    flex-direction: row;\n    height: 100px;\n    justify-content: center;\n    align-items: center;\n    border-left-style: solid;\n    border-bottom-width: 1px;\n    border-bottom-color:#ddd;\n}\n.img[data-v-4e4ad46a] {\n    width: 45px;\n    height: 45px;\n    margin-right: 20px;\n}\n.item-text[data-v-4e4ad46a] {\n    font-size: 45px;\n}\n", ""]);
+exports.push([module.i, "\n.item[data-v-4e4ad46a] {\n    flex-direction: row;\n    height: 100px;\n    justify-content: center;\n    align-items: center;\n    border-left-style: solid;\n    border-bottom-width: 1px;\n    border-bottom-color:#ddd;\n}\n.img[data-v-4e4ad46a] {\n    width: 45px;\n    height: 45px;\n    margin-right: 20px;\n}\n.item-text[data-v-4e4ad46a] {\n    font-size: 33px;\n}\n.row-wrap[data-v-4e4ad46a] {\n    height: 110px;\n    padding-left: 30px;\n    border-bottom-width: 2px;\n    border-bottom-style: solid;\n    border-bottom-color: #DDDDDD;\n    flex-direction: column;\n    justify-content: center;\n}\n.row[data-v-4e4ad46a] {\n    flex-direction: row;\n}\n.other[data-v-4e4ad46a] {\n    flex-direction: row;\n    justify-content: space-between;\n    width: 690px;\n}\n.other-info[data-v-4e4ad46a] {\n    font-size: 22px;\n    color: #c7c1c1;\n}\n.tab[data-v-4e4ad46a] {\n    color:#a59d9d;\n}\n.text[data-v-4e4ad46a] {\n    font-size: 33px;\n    color: black;\n    overflow: hidden;\n    text-overflow:ellipsis;\n    white-space: nowrap;\n    margin-right:30px;\n    display: block;\n    width: 600px;\n    lines: 1;\n}\n.avatar[data-v-4e4ad46a] {\n    width: 60px;\n    height: 60px;\n}\n\n", ""]);
 
 // exports
 
@@ -814,7 +820,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  margin-top: 100px;\n  width: 750px;\n}\n.row[data-v-4e7378a8] {\n  height: 100px;\n  flex-direction: column;\n  justify-content: center;\n  padding-left: 30px;\n  border-bottom-width: 2px;\n  border-bottom-style: solid;\n  border-bottom-color: #DDDDDD;\n}\n.text[data-v-4e7378a8] {\n  font-size: 45px;\n  color: #666666;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n", ""]);
+exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  margin-top: 100px;\n  width: 750px;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n", ""]);
 
 // exports
 
@@ -1294,7 +1300,40 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "showside": _vm.showSide
     }
-  }), _vm._v(" "), _c('wx-scroller'), _vm._v(" "), _c('wx-side-menu', {
+  }), _vm._v(" "), _c('wx-scroller', {
+    on: {
+      "onrefresh": _vm.onRefresh
+    }
+  }, _vm._l((_vm.rows), function(item, index) {
+    return _c('div', {
+      key: index,
+      ref: 'item' + index,
+      refInFor: true,
+      staticClass: "row-wrap"
+    }, [_c('div', {
+      staticClass: "row"
+    }, [_c('text', {
+      ref: 'text' + index,
+      refInFor: true,
+      staticClass: "text",
+      attrs: {
+        "lines": "1"
+      }
+    }, [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('image', {
+      staticClass: "avatar",
+      attrs: {
+        "src": item.author.avatar_url
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "other"
+    }, [_c('text', {
+      staticClass: "other-info tab"
+    }, [_vm._v(_vm._s(item.tab))]), _vm._v(" "), _c('text', {
+      staticClass: "count other-info"
+    }, [_vm._v(_vm._s(item.reply_count) + "/" + _vm._s(item.visit_count) + " ")]), _vm._v(" "), _c('text', {
+      staticClass: "loginname other-info"
+    }, [_vm._v(_vm._s(item.author.loginname))])])])
+  })), _vm._v(" "), _c('wx-side-menu', {
     attrs: {
       "isShow": _vm.isShowSideMenu
     }
@@ -1362,11 +1401,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('image', {
     staticClass: "img",
     attrs: {
-      "src": "http://ojlxao0wn.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C.png"
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E7%89%A9%E5%93%81.png"
     }
   }), _vm._v(" "), _c('text', {
     staticClass: "item-text"
-  }, [_vm._v("工作")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("精华")])]), _vm._v(" "), _c('div', {
     staticClass: "item",
     on: {
       "click": function($event) {
@@ -1376,11 +1415,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('image', {
     staticClass: "img",
     attrs: {
-      "src": "http://ojlxao0wn.bkt.clouddn.com/%E7%89%A9%E5%93%81.png"
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C.png"
     }
   }), _vm._v(" "), _c('text', {
     staticClass: "item-text"
-  }, [_vm._v("好物")])])]), _vm._v(" "), _c('wx-cover', {
+  }, [_vm._v("工作")])])]), _vm._v(" "), _c('wx-cover', {
     attrs: {
       "isShowCover": _vm.isShowCover
     },
@@ -1422,18 +1461,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": "http://ojlxao0wn.bkt.clouddn.com/loading.gif"
     }
-  })]), _vm._v(" "), _vm._l((_vm.rows), function(name, index) {
-    return _c('div', {
-      key: index,
-      ref: 'item' + index,
-      refInFor: true,
-      staticClass: "row"
-    }, [_c('text', {
-      ref: 'text' + index,
-      refInFor: true,
-      staticClass: "text"
-    }, [_vm._v(_vm._s(name))])])
-  })], 2)], 1)
+  })]), _vm._v(" "), _vm._t("default")], 2)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

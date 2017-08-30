@@ -3202,26 +3202,13 @@ var modal = weex.requireModule('modal');
 exports.default = {
     data: function data() {
         return {
-            refreshing: false,
-            rows: []
+            refreshing: false
         };
-    },
-    created: function created() {
-        for (var i = 0; i < 30; i++) {
-            this.rows.push('row ' + i);
-        }
     },
 
     methods: {
         onrefresh: function onrefresh(event) {
-            var _this = this;
-
-            console.log('is refreshing');
-            modal.toast({ message: 'refresh', duration: 1 });
-            this.refreshing = true;
-            setTimeout(function () {
-                _this.refreshing = false;
-            }, 2000);
+            this.$emit('onrefresh');
         }
     }
 };
@@ -3312,11 +3299,14 @@ var _Scroller2 = _interopRequireDefault(_Scroller);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var stream = weex.requireModule('stream');
+
 exports.default = {
     data: function data() {
         return {
             isShowSideMenu: false,
-            isShowCover: false
+            isShowCover: false,
+            rows: []
         };
     },
 
@@ -3326,7 +3316,22 @@ exports.default = {
         wxCover: _Cover2.default,
         wxScroller: _Scroller2.default
     },
+    mounted: function mounted() {
+        var _this = this;
+
+        this.getTopics('?page=1&limit=20', function (res) {
+            _this.rows = res.data.data;
+        });
+    },
+
     methods: {
+        getTopics: function getTopics(repo, callback) {
+            return stream.fetch({
+                method: 'GET',
+                type: 'json',
+                url: 'https://cnodejs.org/api/v1/topics' + repo
+            }, callback);
+        },
         toItem: function toItem(type) {
             switch (type) {
                 case 0:
@@ -3351,6 +3356,7 @@ exports.default = {
                     break;
             }
         },
+        onRefresh: function onRefresh() {},
         showSide: function showSide() {
             console.log('showSide...');
             this.isShowSideMenu = true;
@@ -3419,7 +3425,46 @@ module.exports = {
     "marginRight": 20
   },
   "item-text": {
-    "fontSize": 45
+    "fontSize": 33
+  },
+  "row-wrap": {
+    "height": 110,
+    "paddingLeft": 30,
+    "borderBottomWidth": 2,
+    "borderBottomStyle": "solid",
+    "borderBottomColor": "#DDDDDD",
+    "flexDirection": "column",
+    "justifyContent": "center"
+  },
+  "row": {
+    "flexDirection": "row"
+  },
+  "other": {
+    "flexDirection": "row",
+    "justifyContent": "space-between",
+    "width": 690
+  },
+  "other-info": {
+    "fontSize": 22,
+    "color": "#c7c1c1"
+  },
+  "tab": {
+    "color": "#a59d9d"
+  },
+  "text": {
+    "fontSize": 33,
+    "color": "#000000",
+    "overflow": "hidden",
+    "textOverflow": "ellipsis",
+    "whiteSpace": "nowrap",
+    "marginRight": 30,
+    "display": "block",
+    "width": 600,
+    "lines": 1
+  },
+  "avatar": {
+    "width": 60,
+    "height": 60
   }
 }
 
@@ -3452,19 +3497,6 @@ module.exports = {
   "scroller": {
     "marginTop": 100,
     "width": 750
-  },
-  "row": {
-    "height": 100,
-    "flexDirection": "column",
-    "justifyContent": "center",
-    "paddingLeft": 30,
-    "borderBottomWidth": 2,
-    "borderBottomStyle": "solid",
-    "borderBottomColor": "#DDDDDD"
-  },
-  "text": {
-    "fontSize": 45,
-    "color": "#666666"
   },
   "refresh": {
     "width": 750,
@@ -3536,7 +3568,40 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "showside": _vm.showSide
     }
-  }), _c('wx-scroller'), _c('wx-side-menu', {
+  }), _c('wx-scroller', {
+    on: {
+      "onrefresh": _vm.onRefresh
+    }
+  }, _vm._l((_vm.rows), function(item, index) {
+    return _c('div', {
+      key: index,
+      ref: 'item' + index,
+      refInFor: true,
+      staticClass: ["row-wrap"]
+    }, [_c('div', {
+      staticClass: ["row"]
+    }, [_c('text', {
+      ref: 'text' + index,
+      refInFor: true,
+      staticClass: ["text"],
+      attrs: {
+        "lines": "1"
+      }
+    }, [_vm._v(_vm._s(item.title))]), _c('image', {
+      staticClass: ["avatar"],
+      attrs: {
+        "src": item.author.avatar_url
+      }
+    })]), _c('div', {
+      staticClass: ["other"]
+    }, [_c('text', {
+      staticClass: ["other-info", "tab"]
+    }, [_vm._v(_vm._s(item.tab))]), _c('text', {
+      staticClass: ["count", "other-info"]
+    }, [_vm._v(_vm._s(item.reply_count) + "/" + _vm._s(item.visit_count) + " ")]), _c('text', {
+      staticClass: ["loginname", "other-info"]
+    }, [_vm._v(_vm._s(item.author.loginname))])])])
+  })), _c('wx-side-menu', {
     attrs: {
       "isShow": _vm.isShowSideMenu
     }
@@ -3604,11 +3669,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('image', {
     staticClass: ["img"],
     attrs: {
-      "src": "http://ojlxao0wn.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C.png"
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E7%89%A9%E5%93%81.png"
     }
   }), _c('text', {
     staticClass: ["item-text"]
-  }, [_vm._v("工作")])]), _c('div', {
+  }, [_vm._v("精华")])]), _c('div', {
     staticClass: ["item"],
     on: {
       "click": function($event) {
@@ -3618,11 +3683,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('image', {
     staticClass: ["img"],
     attrs: {
-      "src": "http://ojlxao0wn.bkt.clouddn.com/%E7%89%A9%E5%93%81.png"
+      "src": "http://ojlxao0wn.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C.png"
     }
   }), _c('text', {
     staticClass: ["item-text"]
-  }, [_vm._v("好物")])])]), _c('wx-cover', {
+  }, [_vm._v("工作")])])]), _c('wx-cover', {
     attrs: {
       "isShowCover": _vm.isShowCover
     },
@@ -3685,18 +3750,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": "http://ojlxao0wn.bkt.clouddn.com/loading.gif"
     }
-  })]), _vm._l((_vm.rows), function(name, index) {
-    return _c('div', {
-      key: index,
-      ref: 'item' + index,
-      refInFor: true,
-      staticClass: ["row"]
-    }, [_c('text', {
-      ref: 'text' + index,
-      refInFor: true,
-      staticClass: ["text"]
-    }, [_vm._v(_vm._s(name))])])
-  })], 2)])
+  })]), _vm._t("default")], 2)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

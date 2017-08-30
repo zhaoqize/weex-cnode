@@ -28,3 +28,8 @@ text文本可以居中，但是图片无法居中
 
 临时解决方案：使用图床来做。
 
+### web和安卓上换行和...号不一样
+weex中使用`lines`控制行数，text中也需要设置`lines`
+
+具体见：http://weex-project.io/cn/references/components/text.html
+
