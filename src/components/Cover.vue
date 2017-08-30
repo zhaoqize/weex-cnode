@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .cover {
   position: fixed;
-  background-color: rgba(0, 64, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   bottom: 0;
   width: 450px;
