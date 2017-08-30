@@ -1,16 +1,16 @@
 <template>
   <div class="wrapper">
-    <list class="scroller" @loadmore="loadmore" loadmoreoffset="10">
+    <list class="scroller">
       <refresh class="refresh" @refresh="onrefresh" :display="refreshing ? 'show' : 'hide'">
           <!-- <image style="width:45px;height:45px;" src="http://ojlxao0wn.bkt.clouddn.com/loading.gif"></image> -->
           <text> ↓ pull to refresh </text>
           <loading-indicator class="indicator"></loading-indicator>
       </refresh>
       <slot></slot>
-      <!-- <loading class="refresh" @loading="onloading" :display="showloading" >
+      <loading class="refresh" @loading="loadmore" :display="showloading" >
         <text>↑ Loadmore </text>
         <loading-indicator class="indicator"></loading-indicator>
-      </loading> -->
+      </loading>
     </list>
   </div>
 </template>

@@ -3676,6 +3676,7 @@ module.exports = {
   },
   "loading": {
     "width": 750,
+    "height": 100,
     "display": "flex",
     "MsFlexAlign": "center",
     "WebkitAlignItems": "center",
@@ -3978,13 +3979,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: ["wrapper"]
   }, [_c('list', {
-    staticClass: ["scroller"],
-    attrs: {
-      "loadmoreoffset": "10"
-    },
-    on: {
-      "loadmore": _vm.loadmore
-    }
+    staticClass: ["scroller"]
   }, [_c('refresh', {
     staticClass: ["refresh"],
     attrs: {
@@ -3995,7 +3990,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('text', [_vm._v(" ↓ pull to refresh ")]), _c('loading-indicator', {
     staticClass: ["indicator"]
-  })], 1), _vm._t("default")], 2)])
+  })], 1), _vm._t("default"), _c('loading', {
+    staticClass: ["refresh"],
+    attrs: {
+      "display": _vm.showloading
+    },
+    on: {
+      "loading": _vm.loadmore
+    }
+  }, [_c('text', [_vm._v("↑ Loadmore ")]), _c('loading-indicator', {
+    staticClass: ["indicator"]
+  })], 1)], 2)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

@@ -918,7 +918,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  /* margin-top: 100px; */\n  width: 750px;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: 100px;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n.loading[data-v-4e7378a8] {\n  width: 750px;\n  height: auto;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n/* .indicator {\n  background-color: gray;\n  color: white;\n  padding-left: 20px;\n  padding-right: 20px; \n  padding-top: 20px;\n  padding-bottom: 20px; \n} */\n.indicator[data-v-4e7378a8] {\n  color: red;\n  font-size: 42px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.scroller[data-v-4e7378a8] {\n  /* margin-top: 100px; */\n  width: 750px;\n}\n.refresh[data-v-4e7378a8] {\n  width: 750px;\n  height: 100px;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n.loading[data-v-4e7378a8] {\n  width: 750px;\n  height: 100px;\n  display: -ms-flex;\n  display: -webkit-flex;\n  display: flex;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  -webkit-box-align: center;\n  align-items: center;\n}\n/* .indicator {\n  background-color: gray;\n  color: white;\n  padding-left: 20px;\n  padding-right: 20px; \n  padding-top: 20px;\n  padding-bottom: 20px; \n} */\n.indicator[data-v-4e7378a8] {\n  color: red;\n  font-size: 42px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -1636,13 +1636,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "wrapper"
   }, [_c('list', {
-    staticClass: "scroller",
-    attrs: {
-      "loadmoreoffset": "10"
-    },
-    on: {
-      "loadmore": _vm.loadmore
-    }
+    staticClass: "scroller"
   }, [_c('refresh', {
     staticClass: "refresh",
     attrs: {
@@ -1653,7 +1647,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('text', [_vm._v(" ↓ pull to refresh ")]), _vm._v(" "), _c('loading-indicator', {
     staticClass: "indicator"
-  })], 1), _vm._v(" "), _vm._t("default")], 2)], 1)
+  })], 1), _vm._v(" "), _vm._t("default"), _vm._v(" "), _c('loading', {
+    staticClass: "refresh",
+    attrs: {
+      "display": _vm.showloading
+    },
+    on: {
+      "loading": _vm.loadmore
+    }
+  }, [_c('text', [_vm._v("↑ Loadmore ")]), _vm._v(" "), _c('loading-indicator', {
+    staticClass: "indicator"
+  })], 1)], 2)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

@@ -9,7 +9,7 @@
         :showloading="showloading">
         <cell class="row-wrap" v-for="(item, index) in rows" :ref="'item'+index" :key="index" @click="goToArticle(item)">
             <div class="row">
-                <text class="text" :ref="'text'+index" lines="1">{{index}}--{{item.title}}</text>
+                <text class="text" :ref="'text'+index" lines="1">{{item.title}}</text>
                 <image :src="item.author.avatar_url" class="avatar"></image>
             </div>
             <div class="other">
