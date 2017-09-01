@@ -90,10 +90,7 @@ loading在web上看不到效果，但是在安卓上没问题。
 
 ## 截图
 ### web
-![](http://ojlxao0wn.bkt.clouddn.com/120.png)
-![](http://ojlxao0wn.bkt.clouddn.com/230.png)
+![](http://ojlxao0wn.bkt.clouddn.com/demo2.gif)
 
 ### 安卓
-![](http://ojlxao0wn.bkt.clouddn.com/12.png)
-![](http://ojlxao0wn.bkt.clouddn.com/23.png)
-![](http://ojlxao0wn.bkt.clouddn.com/34.png)
+![](http://ojlxao0wn.bkt.clouddn.com/demo1.gif)
