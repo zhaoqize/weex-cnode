@@ -21,31 +21,31 @@
     </wx-scroller>
 
     <wx-side-menu :isShow="isShowSideMenu">
-        <div class="item" @click="toItem(0)">
+        <div class="item">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E4%BA%BA%20%283%29.png">
             </image>
         </div>
-        <div class="item" @click="toItem(1)">
+        <div class="item" @click="toItem('index')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E9%A6%96%E9%A1%B5.png">
             </image> 
             <text class="item-text">首页</text>
         </div>
-        <div class="item" @click="toItem(2)">
+        <div class="item" @click="toItem('ask')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E9%97%AE%E7%AD%94.png">
             </image> 
             <text class="item-text">问答</text>
         </div>
-        <div class="item" @click="toItem(3)">
+        <div class="item" @click="toItem('share')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E5%88%86%E4%BA%AB.png">
             </image>
             <text class="item-text">分享</text>
         </div>
-        <div class="item" @click="toItem(4)">
+        <div class="item" @click="toItem('good')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E7%89%A9%E5%93%81.png">
             </image>
             <text class="item-text">精华</text>
         </div>
-        <div class="item" @click="toItem(5)">
+        <div class="item" @click="toItem('job')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C.png">
             </image>
             <text class="item-text">工作</text>
@@ -69,6 +69,7 @@ export default {
     name: 'index',
     data () {
         return {
+            type: '',
             isShowSideMenu: false, // 控制左侧菜单
             isShowCover: false, // 控制遮罩
             rows: [], // 数据列表
@@ -99,23 +100,40 @@ export default {
         },
         toItem (type) {
             switch (type) {
-                case 0:
-                    
+                case 'index':
+                    this.getTopics('?page=1&limit=12', (res) => {
+                        this.rows = res.data.data;
+                        this.type = '';
+                        this.pointer = 1;
+                    });
                     break;
-                case 1:
-                    
+                case 'ask':
+                    this.getTopics('?tab=ask&page=1&limit=12', (res) => {
+                        this.rows = res.data.data;
+                        this.type = 'ask';
+                        this.pointer = 1;
+                    });
                     break;
-                case 2:
-                    
+                case 'share':
+                    this.getTopics('?tab=share&page=1&limit=12', (res) => {
+                        this.rows = res.data.data;
+                        this.type = 'share';
+                        this.pointer = 1;
+                    });
                     break;
-                case 3:
-                    
+                case 'good':
+                    this.getTopics('?tab=good&page=1&limit=12', (res) => {
+                        this.rows = res.data.data;
+                        this.type = 'good';
+                        this.pointer = 1;
+                    });
                     break;
-                case 4:
-                    
-                    break;
-                case 5:
-                    
+                case 'job':
+                    this.getTopics('?tab=job&page=1&limit=12', (res) => {
+                        this.rows = res.data.data;
+                        this.type = 'job';
+                        this.pointer = 1;
+                    });
                     break;
                 default:
                     break;
@@ -124,7 +142,7 @@ export default {
         onrefresh () {
             this.pointer = 1;
             this.refreshing = true;
-            this.getTopics('?page=1&limit=12', (res) => {
+            this.getTopics(`?tab=${this.type}&page=1&limit=12`, (res) => {
                 modal.toast({ message: '刷新成功!', duration: 1 });
                 this.rows = res.data.data;
                 this.refreshing = false;
@@ -135,7 +153,7 @@ export default {
             this.pointer = this.pointer + 1;
             const limit = this.pointer * 12;
             this.showloading = 'show';
-            this.getTopics('?page=1&limit=' + limit, (res) => {
+            this.getTopics(`??tab=${this.type}&page=1&limit=${limit}`, (res) => {
                 modal.toast({ message: '获取数据成功!', duration: 1 });
                 this.rows = res.data.data;
                 this.showloading = 'hide';

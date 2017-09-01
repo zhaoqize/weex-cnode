@@ -3409,6 +3409,7 @@ exports.default = {
     name: 'index',
     data: function data() {
         return {
+            type: '',
             isShowSideMenu: false,
             isShowCover: false,
             rows: [],
@@ -3439,51 +3440,70 @@ exports.default = {
             this.$router.push({ path: 'article/' + item.id, query: { id: item.id } });
         },
         toItem: function toItem(type) {
+            var _this = this;
+
             switch (type) {
-                case 0:
-
+                case 'index':
+                    this.getTopics('?page=1&limit=12', function (res) {
+                        _this.rows = res.data.data;
+                        _this.type = '';
+                        _this.pointer = 1;
+                    });
                     break;
-                case 1:
-
+                case 'ask':
+                    this.getTopics('?tab=ask&page=1&limit=12', function (res) {
+                        _this.rows = res.data.data;
+                        _this.type = 'ask';
+                        _this.pointer = 1;
+                    });
                     break;
-                case 2:
-
+                case 'share':
+                    this.getTopics('?tab=share&page=1&limit=12', function (res) {
+                        _this.rows = res.data.data;
+                        _this.type = 'share';
+                        _this.pointer = 1;
+                    });
                     break;
-                case 3:
-
+                case 'good':
+                    this.getTopics('?tab=good&page=1&limit=12', function (res) {
+                        _this.rows = res.data.data;
+                        _this.type = 'good';
+                        _this.pointer = 1;
+                    });
                     break;
-                case 4:
-
-                    break;
-                case 5:
-
+                case 'job':
+                    this.getTopics('?tab=job&page=1&limit=12', function (res) {
+                        _this.rows = res.data.data;
+                        _this.type = 'job';
+                        _this.pointer = 1;
+                    });
                     break;
                 default:
                     break;
             }
         },
         onrefresh: function onrefresh() {
-            var _this = this;
+            var _this2 = this;
 
             this.pointer = 1;
             this.refreshing = true;
-            this.getTopics('?page=1&limit=12', function (res) {
+            this.getTopics('?tab=' + this.type + '&page=1&limit=12', function (res) {
                 modal.toast({ message: '刷新成功!', duration: 1 });
-                _this.rows = res.data.data;
-                _this.refreshing = false;
+                _this2.rows = res.data.data;
+                _this2.refreshing = false;
             });
         },
         loadmore: function loadmore() {
-            var _this2 = this;
+            var _this3 = this;
 
             console.log('--- onloadmore ---');
             this.pointer = this.pointer + 1;
             var limit = this.pointer * 12;
             this.showloading = 'show';
-            this.getTopics('?page=1&limit=' + limit, function (res) {
+            this.getTopics('??tab=' + this.type + '&page=1&limit=' + limit, function (res) {
                 modal.toast({ message: '获取数据成功!', duration: 1 });
-                _this2.rows = res.data.data;
-                _this2.showloading = 'hide';
+                _this3.rows = res.data.data;
+                _this3.showloading = 'hide';
             });
         },
         showSide: function showSide() {
@@ -3699,7 +3719,7 @@ module.exports = {
 module.exports = {
   "cover": {
     "position": "fixed",
-    "backgroundColor": "rgba(0,64,255,0.5)",
+    "backgroundColor": "rgba(0,0,0,0.5)",
     "top": 0,
     "bottom": 0,
     "width": 450,
@@ -3833,7 +3853,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "lines": "1"
       }
-    }, [_vm._v(_vm._s(index) + "--" + _vm._s(item.title))]), _c('image', {
+    }, [_vm._v(_vm._s(item.title))]), _c('image', {
       staticClass: ["avatar"],
       attrs: {
         "src": item.author.avatar_url
@@ -3852,12 +3872,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "isShow": _vm.isShowSideMenu
     }
   }, [_c('div', {
-    staticClass: ["item"],
-    on: {
-      "click": function($event) {
-        _vm.toItem(0)
-      }
-    }
+    staticClass: ["item"]
   }, [_c('image', {
     staticClass: ["img"],
     attrs: {
@@ -3867,7 +3882,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["item"],
     on: {
       "click": function($event) {
-        _vm.toItem(1)
+        _vm.toItem('index')
       }
     }
   }, [_c('image', {
@@ -3881,7 +3896,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["item"],
     on: {
       "click": function($event) {
-        _vm.toItem(2)
+        _vm.toItem('ask')
       }
     }
   }, [_c('image', {
@@ -3895,7 +3910,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["item"],
     on: {
       "click": function($event) {
-        _vm.toItem(3)
+        _vm.toItem('share')
       }
     }
   }, [_c('image', {
@@ -3909,7 +3924,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["item"],
     on: {
       "click": function($event) {
-        _vm.toItem(4)
+        _vm.toItem('good')
       }
     }
   }, [_c('image', {
@@ -3923,7 +3938,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["item"],
     on: {
       "click": function($event) {
-        _vm.toItem(5)
+        _vm.toItem('job')
       }
     }
   }, [_c('image', {
