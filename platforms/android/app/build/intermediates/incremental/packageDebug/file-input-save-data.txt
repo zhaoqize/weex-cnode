@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Aug 28 18:35:18 CST 2017
+#Mon Sep 04 11:45:20 CST 2017
 14.set=ANDROID_RESOURCE
 180.file=/study/weex/demo02/platforms/android/app/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/1f/main/lib/armeabi-v7a/libbitmaps.so
 118.set=ANDROID_RESOURCE

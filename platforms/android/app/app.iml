@@ -101,6 +101,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/reports" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
@@ -138,5 +139,41 @@
     <orderEntry type="library" exported="" name="imagepipeline-0.10.0" level="project" />
     <orderEntry type="module" module-name="weexplugin" exported="" />
     <orderEntry type="module" module-name="appframework" exported="" />
+    <orderEntry type="library" exported="" scope="TEST" name="maven-ant-tasks-2.1.3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="ant-1.8.0" level="project" />
+    <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="javassist-3.20.0-GA" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-annotations-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="accessibility-test-framework-1.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-common-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-commons-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="ant-launcher-1.8.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="jcommander-1.27" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-utils-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-reflect-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="testng-6.8.21" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-util-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="bcprov-jdk16-1.46" level="project" />
+    <orderEntry type="library" exported="" name="bolts-android-1.1.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-api-support-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="mockito-core-1.10.19" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-legacy-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="objenesis-2.1" level="project" />
+    <orderEntry type="library" exported="" name="library-2.4.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-core-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-module-testng-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="icu4j-53.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="shadows-core-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-module-testng-common-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-resources-3.0-rc3" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="sqlite4java-0.282" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-tree-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-api-mockito-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-analysis-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="bsh-2.0b4" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="vtd-xml-2.11" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-1.6.4" level="project" />
   </component>
 </module>

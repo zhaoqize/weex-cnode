@@ -122,12 +122,12 @@
     <orderEntry type="library" exported="" name="appcompat-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="jsr305-2.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-legacy-1.6.4" level="project" />
-    <orderEntry type="library" exported="" name="fbcore-0.10.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="objenesis-2.1" level="project" />
+    <orderEntry type="library" exported="" name="fbcore-0.10.0" level="project" />
     <orderEntry type="library" exported="" name="library-2.4.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-core-1.6.4" level="project" />
-    <orderEntry type="library" exported="" name="imagepipeline-base-0.10.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-module-testng-1.6.4" level="project" />
+    <orderEntry type="library" exported="" name="imagepipeline-base-0.10.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="icu4j-53.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="shadows-core-3.0-rc3" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-module-testng-common-1.6.4" level="project" />

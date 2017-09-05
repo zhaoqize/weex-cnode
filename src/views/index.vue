@@ -25,27 +25,27 @@
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E4%BA%BA%20%283%29.png">
             </image>
         </div>
-        <div class="item" @click="toItem('index')">
+        <div class="item" ref="index" @click="toItem('index')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E9%A6%96%E9%A1%B5.png">
             </image> 
             <text class="item-text">首页</text>
         </div>
-        <div class="item" @click="toItem('ask')">
+        <div class="item" ref="ask" @click="toItem('ask')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E9%97%AE%E7%AD%94.png">
             </image> 
             <text class="item-text">问答</text>
         </div>
-        <div class="item" @click="toItem('share')">
+        <div class="item" ref="share" @click="toItem('share')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E5%88%86%E4%BA%AB.png">
             </image>
             <text class="item-text">分享</text>
         </div>
-        <div class="item" @click="toItem('good')">
+        <div class="item" ref="good" @click="toItem('good')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E7%89%A9%E5%93%81.png">
             </image>
             <text class="item-text">精华</text>
         </div>
-        <div class="item" @click="toItem('job')">
+        <div class="item" ref="job" @click="toItem('job')">
             <image class="img" src="http://ojlxao0wn.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C.png">
             </image>
             <text class="item-text">工作</text>
@@ -226,6 +226,9 @@ export default {
 .avatar {
     width: 60px;
     height: 60px;;
+}
+.item-selected {
+    background-color: #eae7e7;
 }
 
 </style>

@@ -1,9 +1,29 @@
-## 困惑点
-### 尺寸大小
+## ⚠️注意的点
+- 行内样式的px与class类中的px在weex中的表现不一样，建议使用class来处理样式
+- 标签一定要使用weex自带的组件，因为常用的html属性不支持跨平台
 
-### 标签嵌套
+## 运行
+编译代码
+```bash
+npm run build
+```
 
-## Weex开发中遇到的问题
+启动serve
+```bash
+npm run serve
+```
+浏览器访问`http://localhost/web/#/index`
+
+安卓访问：需要AS和安卓模拟器(真机)
+
+## 演示
+### web
+![](http://ojlxao0wn.bkt.clouddn.com/demo2.gif)
+
+### 安卓
+![](http://ojlxao0wn.bkt.clouddn.com/demo1.gif)
+
+## ❓Weex开发中遇到的问题
 ### refresh中图片不居中
 text文本可以居中，但是图片无法居中
 
@@ -87,10 +107,3 @@ loading在web上看不到效果，但是在安卓上没问题。
 ### stream请求后面总是会带上`undefined`
 
 ### fixed元素路由跳转不发生变化
-
-## 截图
-### web
-![](http://ojlxao0wn.bkt.clouddn.com/demo2.gif)
-
-### 安卓
-![](http://ojlxao0wn.bkt.clouddn.com/demo1.gif)
