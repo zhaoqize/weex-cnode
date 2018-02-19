@@ -1,3 +1,7 @@
+[![GitHub license](https://img.shields.io/github/license/zhaoqize/weex-cnode.svg)](https://github.com/zhaoqize/weex-cnode/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
+[![Travis](https://img.shields.io/badge/oschina-%E6%94%B6%E5%BD%95-orange.svg)](https://www.oschina.net/search?scope=project&q=weex-cnode)
+
 ## weex-cnode
 weex-cnode 是一个使用 weex 创建的手机应用。
 
