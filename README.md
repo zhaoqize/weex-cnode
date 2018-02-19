@@ -47,3 +47,6 @@ npm run serve
 > 参考源码:https://github.com/apache/incubator-weex/blob/master/examples/component/list/list-basic.we
 - stream请求后面总是会带上`undefined`
 - fixed元素路由跳转不发生变化
+
+## License
+MIT
