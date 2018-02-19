@@ -49,4 +49,4 @@ npm run serve
 - fixed元素路由跳转不发生变化
 
 ## License
-MIT
+[MIT](https://github.com/zhaoqize/weex-cnode/blob/master/LICENSE)
